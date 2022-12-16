@@ -1,8 +1,8 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('blog/',include('blog.urls')),
-    path('admin/',admin.site.urls),
-    path('',include('single_pages.urls'))
+    path('',views.PostList.as_view()),
+    #path(', views.index),
+    path('<int:pk>/',views.single_post_page),
 ]
